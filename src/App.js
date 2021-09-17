@@ -10,19 +10,34 @@ import SignUp from './components/auth/SignUp'
 import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
+import Projects from './components/projects/Projects'
+import { index } from './api/projects'
+// import Project from './components/Products/Products'
 
 class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
       user: null,
-      msgAlerts: []
+      msgAlerts: [],
+      owner: this.user,
+      projects: []
     }
+  }
+
+  componentDidMount () {
+    // api call for
+    index()
+      .then((res) => this.setState({ projects: res.data.projects }))
+      .then((res) => console.log(res))
+      .catch(console.error)
   }
 
   setUser = (user) => this.setState({ user })
 
   clearUser = () => this.setState({ user: null })
+
+  setCategory = (category) => this.setState({ category })
 
   deleteAlert = (id) => {
     this.setState((state) => {
@@ -40,12 +55,16 @@ class App extends Component {
   }
 
   render () {
-    const { msgAlerts, user } = this.state
+    const { msgAlerts, user, projects, category } = this.state
 
     return (
       <Fragment>
-	      <Header user={user} />
-	      {msgAlerts.map((msgAlert) => (
+        <Header
+          user={user}
+          projects={projects}
+          setCategory={this.setCategory}
+        />
+        {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert
             key={msgAlert.id}
             heading={msgAlert.heading}
@@ -55,8 +74,8 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
-	      <main className='container'>
-	        <Route
+        <main className='container'>
+          <Route
             path='/sign-up'
             render={() => (
               <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
@@ -66,6 +85,19 @@ class App extends Component {
             path='/sign-in'
             render={() => (
               <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
+            )}
+          />
+          <Route
+            exact
+            path='/projects'
+            // new prop to show only the clicked-on category
+            render={() => (
+              <Projects
+                msgAlert={this.msgAlert}
+                projects={projects}
+                category={category}
+                setCategory={this.setCategory}
+              />
             )}
           />
           <AuthenticatedRoute
