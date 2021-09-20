@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/BuildIT/static/css/main.e57eb05d.chunk.css",
-    "main.js": "/BuildIT/static/js/main.3a1d4aae.chunk.js",
-    "main.js.map": "/BuildIT/static/js/main.3a1d4aae.chunk.js.map",
-    "runtime-main.js": "/BuildIT/static/js/runtime-main.1a65f69d.js",
-    "runtime-main.js.map": "/BuildIT/static/js/runtime-main.1a65f69d.js.map",
-    "static/js/2.3eda3a3e.chunk.js": "/BuildIT/static/js/2.3eda3a3e.chunk.js",
-    "static/js/2.3eda3a3e.chunk.js.map": "/BuildIT/static/js/2.3eda3a3e.chunk.js.map",
-    "index.html": "/BuildIT/index.html",
-    "static/css/main.e57eb05d.chunk.css.map": "/BuildIT/static/css/main.e57eb05d.chunk.css.map",
-    "static/js/2.3eda3a3e.chunk.js.LICENSE.txt": "/BuildIT/static/js/2.3eda3a3e.chunk.js.LICENSE.txt"
+    "main.css": "/BuiltIT-Client/static/css/main.e57eb05d.chunk.css",
+    "main.js": "/BuiltIT-Client/static/js/main.b01c0bd6.chunk.js",
+    "main.js.map": "/BuiltIT-Client/static/js/main.b01c0bd6.chunk.js.map",
+    "runtime-main.js": "/BuiltIT-Client/static/js/runtime-main.7275adc8.js",
+    "runtime-main.js.map": "/BuiltIT-Client/static/js/runtime-main.7275adc8.js.map",
+    "static/js/2.3eda3a3e.chunk.js": "/BuiltIT-Client/static/js/2.3eda3a3e.chunk.js",
+    "static/js/2.3eda3a3e.chunk.js.map": "/BuiltIT-Client/static/js/2.3eda3a3e.chunk.js.map",
+    "index.html": "/BuiltIT-Client/index.html",
+    "static/css/main.e57eb05d.chunk.css.map": "/BuiltIT-Client/static/css/main.e57eb05d.chunk.css.map",
+    "static/js/2.3eda3a3e.chunk.js.LICENSE.txt": "/BuiltIT-Client/static/js/2.3eda3a3e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.1a65f69d.js",
+    "static/js/runtime-main.7275adc8.js",
     "static/js/2.3eda3a3e.chunk.js",
     "static/css/main.e57eb05d.chunk.css",
-    "static/js/main.3a1d4aae.chunk.js"
+    "static/js/main.b01c0bd6.chunk.js"
   ]
 }
