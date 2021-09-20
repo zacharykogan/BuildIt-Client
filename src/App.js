@@ -11,8 +11,8 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 import Projects from './components/projects/Projects'
+import Project from './components/projects/Project'
 import { index } from './api/projects'
-// import Project from './components/Products/Products'
 
 class App extends Component {
   constructor (props) {
@@ -29,15 +29,12 @@ class App extends Component {
     // api call for
     index()
       .then((res) => this.setState({ projects: res.data.projects }))
-      .then((res) => console.log(res))
       .catch(console.error)
   }
 
   setUser = (user) => this.setState({ user })
 
   clearUser = () => this.setState({ user: null })
-
-  setCategory = (category) => this.setState({ category })
 
   deleteAlert = (id) => {
     this.setState((state) => {
@@ -55,14 +52,13 @@ class App extends Component {
   }
 
   render () {
-    const { msgAlerts, user, projects, category } = this.state
+    const { msgAlerts, user, projects } = this.state
 
     return (
       <Fragment>
         <Header
           user={user}
           projects={projects}
-          setCategory={this.setCategory}
         />
         {msgAlerts.map((msgAlert) => (
           <AutoDismissAlert
@@ -90,13 +86,21 @@ class App extends Component {
           <Route
             exact
             path='/projects'
-            // new prop to show only the clicked-on category
             render={() => (
               <Projects
                 msgAlert={this.msgAlert}
                 projects={projects}
-                category={category}
-                setCategory={this.setCategory}
+              />
+            )}
+          />
+          <Route
+            exact
+            path='/projects/:id'
+            render={() => (
+              <Project
+                msgAlert={this.msgAlert}
+                user={user}
+                projects={projects}
               />
             )}
           />

@@ -1,6 +1,6 @@
 import React from 'react'
 import { withRouter, Link } from 'react-router-dom'
-import { Card, Col, Row, Breadcrumb } from 'react-bootstrap'
+import { Card, Col, Row } from 'react-bootstrap'
 
 const cardImg = {
   margin: 'auto',
@@ -29,26 +29,11 @@ const card = {
   borderRadius: '10px'
 }
 
-const breadcrumbs = {
-  fontSize: '12px',
-  textDecoration: 'none'
-}
-
 const Projects = (props) => {
   // coming in from props, from clicking on the dropdown menu
-  const { category, projects, setCategory } = props
+  const { projects } = props
 
-  const filteredProjects = projects.filter((item) => {
-    if (category === 'All Projects') {
-      return item.category
-    } else {
-      return item.category === category
-    }
-  })
-
-  console.log(projects)
-
-  const projectList = filteredProjects.map((item) => (
+  const projectList = projects.map((item) => (
     <Col xs={12} md={6} lg={4} xl={4} key={item._id} style={cardCol}>
       <Card style={card} className='m-auto'>
         <Link style={{ margin: 'auto' }} to={`/projects/${item._id}`}>
@@ -66,24 +51,10 @@ const Projects = (props) => {
 
   return (
     <Row>
-      <Breadcrumb className='mt-3' style={breadcrumbs}>
-        <Breadcrumb.Item>
-          <Link to={'/'}>
-            home
-          </Link>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>
-          <Link to={'/projects'} onClick={() => setCategory('All Projects')}>
-            Projects
-          </Link>
-        </Breadcrumb.Item>
-        <Breadcrumb.Item>{category}</Breadcrumb.Item>
-      </Breadcrumb>
-      <h3 className='text-light mt-5'>{category}</h3>
+      <h3 className='text-light mt-5'></h3>
       <Col xs={12} style={{ marginTop: '10px' }}>
         <Row>{projectList}</Row>
       </Col>
-
       <div className='col-12 mt-5'></div>
     </Row>
   )

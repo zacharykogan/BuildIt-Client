@@ -1,129 +1,97 @@
-import React, { useState, useEffect } from 'react'
+import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-import { Button, Card, Row, Col } from 'react-bootstrap'
-import { showProduct } from '../../api/products'
-import { updateOrder, showOrder } from '../../api/orders'
-import {
-  addedToCartFailure,
-  addedToCartSuccess
-} from '../AutoDismissAlert/messages'
+// import { Col, Row } from 'react-bootstrap'
+import axios from 'axios'
+import apiUrl from '../../apiConfig'
 
-const card = {
-  border: 'none',
-  borderRadius: '10px',
-}
+// const cardImg = {
+//   margin: 'auto',
+//   padding: '25px',
+//   width: 'auto'
+// }
 
-const cardImg = {
-  margin: 'auto',
-  padding: '25px',
-  width: 'auto',
-  height: '200px',
-}
+// const cardCol = {
+//   margin: 'auto',
+//   marginTop: '10px'
+// }
 
-const cardTitle = {
-  height: '50px',
-}
+// const cardTitle = {
+//   height: '50px'
+// }
 
-const cardCol = {
-  margin: 'auto',
-  marginTop: '10px',
-}
+// const cardBody = {
+//   backgroundColor: 'black',
+//   borderRadius: '0px 0px 8px 8px',
+//   color: 'white'
+// }
 
-const cardBody = {
-  backgroundColor: 'grey',
-  borderRadius: '0px 0px 8px 8px',
-  color: 'white',
-}
+// const card = {
+//   border: 'none',
+//   borderRadius: '10px'
+// }
 
-const button = {
-  width: 'inherit',
-}
+class Project extends Component {
+  constructor (props) {
+    super(props)
 
-const Products = (props) => {
-  const [product, setProduct] = useState(null)
-  const { order, user, setOrder, msgAlert } = props
+    this.state = {
+      project: {}
+    }
+  }
 
-  useEffect(() => {
-    showProduct(props.match.params.id)
-      .then((res) => setProduct(res.data.product))
+  componentDidMount () {
+    axios(`${apiUrl}/projects/${this.props.match.params.id}`)
+      .then(res => this.setState({ project: res.data.project }))
       .catch(console.error)
-  }, [])
-
-  const handleAddToCart = () => {
-    const oldOrder = order.contents
-    let matched = false
-    const orderObj = {
-      id: product._id,
-      quantity: 1,
-      product: product,
-    }
-    // if array is not empty,
-    // iterate and look for a matching id.  If found, increment quantity.
-    if (oldOrder.length === 0) {
-      oldOrder.push(orderObj)
-    } else {
-      // iterate each item, if id's match, increment quantity
-      oldOrder.forEach((item) => {
-        if (item.id === product._id) {
-          // this will track if we've matched for below boolean
-          matched = true
-          item.quantity++
-        }
-      })
-      // after the forEach if there's no match go ahead and push the object,
-      // we need this tracker boolean, because we don't want to have the case of pushing
-      // multiple time inside the forEach loop.  This gives us a way to remember that there
-      // was no match.  It will false-out if it was turned true.
-      if (matched === false) {
-        oldOrder.push(orderObj)
-      }
-    }
-
-    const id = order._id
-    updateOrder(id, oldOrder, user)
-      .then(() => {
-        return showOrder(id, user)
-      })
-      .then((res) => setOrder(res.data.order))
-      .then(() =>
-        msgAlert({
-          heading: 'Added to Cart...',
-          message: addedToCartSuccess,
-          variant: 'success',
-        })
-      )
-      .catch(() => {
-        msgAlert({
-          heading: 'Could not add to Cart.',
-          message: addedToCartFailure,
-          variant: 'danger',
-        })
-      })
   }
 
-  if (!product) {
-    return <p>Loading...</p>
-  }
+  render () {
+    const { project } = this.state
+    const steps = project.steps
+    // const StepList = () => (
+    //   <div>
+    //     <ul>
+    //       {steps.filter((step) => (
+    //         <li key={step}> {step} </li>
+    //       ))}
+    //     </ul>
+    //   </div>
+    // )
+    // const newStepList = project.steps.map()
+    // console.log(newStepList)
+    // const stepList = project.steps.map((item) => (<Col xs={12} md={6} lg={4} xl={4} key={item.id}>
+    //   <Card className='m-auto'>
+    //     <Card.Body>
+    //       <Card.Title >{item.name}</Card.Title>
+    //     </Card.Body>
+    //   </Card>
+    // </Col>
+    // ))
+    // const projectList = steps.map((item) => (
+    //   <Col xs={12} md={6} lg={4} xl={4} key={item} style={cardCol}>
+    //     <Card style={card} className='m-auto'>
+    //       <Card.Img variant='top' src={`${item}`} style={cardImg} />
+    //       <Card.Body style={cardBody}>
+    //         <Card.Title style={cardTitle}>{item}</Card.Title>
+    //       </Card.Body>
+    //     </Card>
+    //   </Col>
+    //   // <div key={item._id} className='col-3 mt-5'>
 
-  const { name, image, description, price } = product
-  // const secondary = 'Secondary'
-  return (
-    <Row>
-      <Col xs={10} md={8} style={cardCol}>
-        <Card style={card} className='m-auto'>
-          <Card.Img variant='top' src={`${image}`} style={cardImg} />
-          <Card.Body style={cardBody}>
-            <Card.Title style={cardTitle}>{name}</Card.Title>
-            <Card.Text>{description}</Card.Text>
-            <Card.Text>${price}</Card.Text>
-            <Button style={button} onClick={handleAddToCart} variant='primary'>
-              Add to Cart
-            </Button>{' '}
-          </Card.Body>
-        </Card>
-      </Col>
-    </Row>
-  )
+    //   // </div>
+    // ))
+    return (
+      <div>
+        <ul>
+          {project.name}
+          {project.image}
+          {project.tools}
+          {project.materials}
+          {steps}
+        </ul>
+      </div>
+    )
+  }
 }
 
-export default withRouter(Products)
+export default withRouter(Project)
