@@ -11,6 +11,7 @@ const authenticatedOptions = (
     <NavLink to='/sign-out' className='nav-link'>
       Sign Out
     </NavLink>
+    <NavLink to='/create-project' className='nav-link'>Create a Project</NavLink>
   </Fragment>
 )
 
