@@ -5,7 +5,7 @@ import { Card, Col, Row } from 'react-bootstrap'
 const cardImg = {
   margin: 'auto',
   padding: '25px',
-  width: 'auto',
+  width: 'md',
   height: '200px'
 }
 
@@ -26,7 +26,9 @@ const cardBody = {
 
 const card = {
   border: 'none',
-  borderRadius: '10px'
+  borderRadius: '10px',
+  width: 'auto',
+  background: 'black'
 }
 
 const Projects = (props) => {
@@ -41,6 +43,7 @@ const Projects = (props) => {
         </Link>
         <Card.Body style={cardBody}>
           <Card.Title style={cardTitle}>{item.name}</Card.Title>
+          <Card.Text>{item.description}</Card.Text>
         </Card.Body>
       </Card>
     </Col>

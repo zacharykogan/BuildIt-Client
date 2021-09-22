@@ -1,34 +1,36 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-// import { Col, Row } from 'react-bootstrap'
+import { Card, Col, Row } from 'react-bootstrap'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 
-// const cardImg = {
-//   margin: 'auto',
-//   padding: '25px',
-//   width: 'auto'
-// }
+const card = {
+  border: 'none',
+  borderRadius: '10px',
+  width: 'auto',
+  background: 'black'
+}
 
-// const cardCol = {
-//   margin: 'auto',
-//   marginTop: '10px'
-// }
+const cardImg = {
+  margin: 'auto',
+  padding: '25px',
+  width: 'md'
+}
 
-// const cardTitle = {
-//   height: '50px'
-// }
+const cardCol = {
+  margin: 'auto',
+  marginTop: '10px'
+}
 
-// const cardBody = {
-//   backgroundColor: 'black',
-//   borderRadius: '0px 0px 8px 8px',
-//   color: 'white'
-// }
+const cardTitle = {
+  height: '50px'
+}
 
-// const card = {
-//   border: 'none',
-//   borderRadius: '10px'
-// }
+const cardBody = {
+  backgroundColor: 'black',
+  borderRadius: '0px 0px 8px 8px',
+  color: 'white'
+}
 
 class Project extends Component {
   constructor (props) {
@@ -47,7 +49,6 @@ class Project extends Component {
 
   render () {
     const { project } = this.state
-    const steps = project.steps
     // const StepList = () => (
     //   <div>
     //     <ul>
@@ -81,15 +82,19 @@ class Project extends Component {
     //   // </div>
     // ))
     return (
-      <div>
-        <ul>
-          {project.name}
-          {project.image}
-          {project.tools}
-          {project.materials}
-          {steps}
-        </ul>
-      </div>
+      <Row>
+        <Col xs={10} md={8} style={cardCol}>
+          <Card style={card} className='m-auto'>
+            <Card.Img variant='top' src={`${project.image}`} style={cardImg} />
+            <Card.Body style={cardBody}>
+              <Card.Title style={cardTitle}>{project.name}</Card.Title>
+              <Card.Text>Tools : {project.tools}</Card.Text>
+              <Card.Text>Materials : {project.materials}</Card.Text>
+              <Card.Text>Steps : {project.steps}</Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
     )
   }
 }
