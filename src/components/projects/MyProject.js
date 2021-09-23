@@ -52,6 +52,8 @@ class MyProject extends Component {
   destroy = () => {
     const { user } = this.props
     deleteProject(user, this.props.match.params.id)
+      .then(() => this.setState({ deleted: true }))
+      .catch(console.error)
   }
 
   render () {

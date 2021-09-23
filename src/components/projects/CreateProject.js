@@ -44,7 +44,7 @@ class CreateProject extends Component {
       .then(
         index().then((res) => this.setState({ projects: res.data.projects }))
       )
-      .then(() => history.push('/projects'))
+      .then(() => history.push('/my-projects'))
       .catch((error) => {
         this.setState({
           name: '',
