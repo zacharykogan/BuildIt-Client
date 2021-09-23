@@ -49,7 +49,7 @@ export const createProject = (project, user) => {
 export const deleteProject = (user, id) => {
   return axios({
     method: 'DELETE',
-    url: apiUrl + `/projects/${id}`,
+    url: apiUrl + `/project/${id}`,
     headers: {
       Authorization: `Bearer ${user.token}`
     }

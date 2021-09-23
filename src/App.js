@@ -14,6 +14,7 @@ import Projects from './components/projects/Projects'
 import Project from './components/projects/Project'
 import CreateProject from './components/projects/CreateProject'
 import MyProjects from './components/projects/MyProjects'
+import MyProject from './components/projects/MyProject'
 import { index } from './api/projects'
 
 class App extends Component {
@@ -102,6 +103,7 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
+            exact
             path='/my-projects'
             render={() => (
               <MyProjects
@@ -110,6 +112,18 @@ class App extends Component {
                 user={user}
               />
             )}
+          />
+          <AuthenticatedRoute
+            user={user}
+            path='/my-projects/:id'
+            render=
+              {() => (
+                <MyProject
+                  msgAlert={this.msgAlert}
+                  clearUser={this.clearUser}
+                  user={user}
+                />
+              )}
           />
           <AuthenticatedRoute
             user={user}
