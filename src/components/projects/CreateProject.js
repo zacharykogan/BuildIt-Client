@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-
-import { createProject } from '../../api/projects'
+import { createProject, index } from '../../api/projects'
 import { createProjectFailure, createProjectSuccess } from '../AutoDismissAlert/messages'
 
 import Form from 'react-bootstrap/Form'
@@ -40,6 +39,10 @@ class CreateProject extends Component {
           message: createProjectSuccess,
           variant: 'success'
         })
+      )
+      .catch(console.error)
+      .then(
+        index().then((res) => this.setState({ projects: res.data.projects }))
       )
       .then(() => history.push('/projects'))
       .catch((error) => {

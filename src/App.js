@@ -13,6 +13,7 @@ import ChangePassword from './components/auth/ChangePassword'
 import Projects from './components/projects/Projects'
 import Project from './components/projects/Project'
 import CreateProject from './components/projects/CreateProject'
+import MyProjects from './components/projects/MyProjects'
 import { index } from './api/projects'
 
 class App extends Component {
@@ -101,15 +102,25 @@ class App extends Component {
           />
           <AuthenticatedRoute
             user={user}
+            path='/my-projects'
+            render={() => (
+              <MyProjects
+                msgAlert={this.msgAlert}
+                clearUser={this.clearUser}
+                user={user}
+              />
+            )}
+          />
+          <AuthenticatedRoute
+            user={user}
             path='/create-project'
-            render=
-              {() => (
-                <CreateProject
-                  msgAlert={this.msgAlert}
-                  clearUser={this.clearUser}
-                  user={user}
-                />
-              )}
+            render={() => (
+              <CreateProject
+                msgAlert={this.msgAlert}
+                clearUser={this.clearUser}
+                user={user}
+              />
+            )}
           />
           <AuthenticatedRoute
             user={user}
