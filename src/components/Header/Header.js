@@ -11,6 +11,8 @@ const authenticatedOptions = (
     <NavLink to='/sign-out' className='nav-link'>
       Sign Out
     </NavLink>
+    <NavLink to='/create-project' className='nav-link'>Create a Project</NavLink>
+    <NavLink to='/my-projects' className='nav-link'>My Projects</NavLink>
   </Fragment>
 )
 
@@ -30,7 +32,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg='primary' variant='dark' expand='md'>
+  <Navbar bg='dark' variant='dark' expand='md'>
     <Navbar.Brand>
       <Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>BuiltIT</Link>
     </Navbar.Brand>
