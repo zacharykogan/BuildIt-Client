@@ -59,7 +59,7 @@ class Project extends Component {
               <Card.Title style={cardTitle}>{project.name}</Card.Title>
               <Card.Text>Tools : {project.tools ? project.tools.map(asList) : 'Loading...' }</Card.Text>
               <Card.Text>Materials : {project.materials ? project.materials.map(asList) : 'Loading...'}</Card.Text>
-              <Card.Text>Steps :<ul>{project.steps ? project.steps.map(asList) : 'Loading...'}</ul></Card.Text>
+              <Card.Text>Steps :<ol>{project.steps ? project.steps.map(asList) : 'Loading...'}</ol></Card.Text>
             </Card.Body>
           </Card>
         </Col>
