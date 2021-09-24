@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 
 import { signIn } from '../../api/auth'
 import { signInSuccess, signInFailure } from '../AutoDismissAlert/messages'
@@ -7,6 +7,21 @@ import { signInSuccess, signInFailure } from '../AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+const form = {
+  background: 'rgba(0, 0, 0, 0.5)',
+  margin: 'auto',
+  padding: '25px',
+  width: 'md',
+  color: 'rgba(240, 230, 180, 0.8)'
+}
+const button = {
+  color: 'blue',
+  border: 'none',
+  background: 'rgba(240, 230, 180, 0.8)',
+  fontSize: '1.2em',
+  fontWeight: 'bolder',
+  width: '100%'
+}
 class SignIn extends Component {
   constructor (props) {
     super(props)
@@ -52,8 +67,8 @@ render () {
 
   return (
     <div className='row'>
-      <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-        <h3>Sign In</h3>
+      <div style={form} className='col-sm-10 col-md-8 mx-auto mt-5'>
+        <h2>Sign In</h2>
         <Form onSubmit={this.onSignIn}>
           <Form.Group controlId='email'>
             <Form.Label>Email address</Form.Label>
@@ -77,8 +92,17 @@ render () {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button variant='primary' type='submit'>Submit</Button>
+          <br></br>
+          <Button
+            style={button}
+            type='submit' size="lg">
+            Sign In
+          </Button>
         </Form>
+        <br></br>
+        <h5>
+          New to BuildIt? <Link to='/sign-up'> Sign up now</Link>
+        </h5>
       </div>
     </div>
   )

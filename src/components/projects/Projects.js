@@ -19,7 +19,7 @@ const cardTitle = {
 }
 
 const cardBody = {
-  backgroundColor: 'black',
+  background: 'rgba(0, 0, 0, 0.5)',
   borderRadius: '0px 0px 8px 8px',
   color: 'white'
 }
@@ -27,8 +27,8 @@ const cardBody = {
 const card = {
   border: 'none',
   borderRadius: '10px',
-  width: 'auto',
-  background: 'black'
+  width: '350',
+  background: 'rgba(0, 0, 0, 0.5)'
 }
 
 const Projects = (props) => {
