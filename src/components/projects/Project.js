@@ -69,36 +69,3 @@ class Project extends Component {
 }
 
 export default withRouter(Project)
-
-// const StepList = () => (
-//   <div>
-//     <ul>
-//       {steps.filter((step) => (
-//         <li key={step}> {step} </li>
-//       ))}
-//     </ul>
-//   </div>
-// )
-// const newStepList = project.steps.map()
-// console.log(newStepList)
-// const stepList = project.steps.map((item) => (<Col xs={12} md={6} lg={4} xl={4} key={item.id}>
-//   <Card className='m-auto'>
-//     <Card.Body>
-//       <Card.Title >{item.name}</Card.Title>
-//     </Card.Body>
-//   </Card>
-// </Col>
-// ))
-// const projectList = steps.map((item) => (
-//   <Col xs={12} md={6} lg={4} xl={4} key={item} style={cardCol}>
-//     <Card style={card} className='m-auto'>
-//       <Card.Img variant='top' src={`${item}`} style={cardImg} />
-//       <Card.Body style={cardBody}>
-//         <Card.Title style={cardTitle}>{item}</Card.Title>
-//       </Card.Body>
-//     </Card>
-//   </Col>
-//   // <div key={item._id} className='col-3 mt-5'>
-
-//   // </div>
-// ))
