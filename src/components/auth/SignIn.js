@@ -51,7 +51,7 @@ onSignIn = (event) => {
         variant: 'success'
       })
     )
-    .then(() => history.push('/'))
+    .then(() => history.push('/projects'))
     .catch((error) => {
       this.setState({ email: '', password: '' })
       msgAlert({

@@ -16,6 +16,7 @@ import CreateProject from './components/projects/CreateProject'
 import EditProject from './components/projects/EditProject'
 import MyProjects from './components/projects/MyProjects'
 import MyProject from './components/projects/MyProject'
+import Home from './components/Home'
 import { index } from './api/projects'
 
 class App extends Component {
@@ -72,6 +73,13 @@ class App extends Component {
           />
         ))}
         <main className='container'>
+          <Route
+            exact
+            path='/'
+            render={() => (
+              <Home msgAlert={this.msgAlert} setUser={this.setUser} />
+            )}
+          />
           <Route
             path='/sign-up'
             render={() => (
