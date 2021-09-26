@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Form } from 'react-bootstrap'
 
-const ProjectForm = ({ project, formHandler, changeHandler }) => (
+const ProjectForm = ({ project, formHandler, changeHandler, listHandler }) => (
   <div className='row'>
     <div className='col-sm-10 col-md-8 mx-auto mt-5'>
       <h3>{!project ? 'Create Project' : 'Edit Project'}</h3>
@@ -24,7 +24,9 @@ const ProjectForm = ({ project, formHandler, changeHandler }) => (
             name='category'
             value={project ? project.category : null}
             type='category'
-            placeholder={project && project.category ? project.category : 'Category'}
+            placeholder={
+              project && project.category ? project.category : 'Category'
+            }
             onChange={changeHandler}
           />
         </Form.Group>
@@ -35,7 +37,11 @@ const ProjectForm = ({ project, formHandler, changeHandler }) => (
             name='description'
             value={project ? project.description : null}
             type='Description'
-            placeholder={project && project.description ? project.description : 'Description'}
+            placeholder={
+              project && project.description
+                ? project.description
+                : 'Description'
+            }
             onChange={changeHandler}
             as='textarea'
             rows={3}
@@ -49,7 +55,7 @@ const ProjectForm = ({ project, formHandler, changeHandler }) => (
             value={project ? project.tools : null}
             type='tools'
             placeholder={project && project.tools ? project.tools : 'Tools'}
-            onChange={changeHandler}
+            onChange={listHandler}
             as='textarea'
             rows={3}
           />
@@ -61,8 +67,10 @@ const ProjectForm = ({ project, formHandler, changeHandler }) => (
             name='materials'
             value={project ? project.materials : null}
             type='materials'
-            placeholder={project && project.materials ? project.materials : 'Materials'}
-            onChange={changeHandler}
+            placeholder={
+              project && project.materials ? project.materials : 'Materials'
+            }
+            onChange={listHandler}
             as='textarea'
             rows={3}
           />
@@ -75,7 +83,7 @@ const ProjectForm = ({ project, formHandler, changeHandler }) => (
             value={project ? project.steps : null}
             type='steps'
             placeholder={project && project.steps ? project.steps : 'Steps'}
-            onChange={changeHandler}
+            onChange={listHandler}
             as='textarea'
             rows={7}
           />
@@ -89,8 +97,6 @@ const ProjectForm = ({ project, formHandler, changeHandler }) => (
             type='image'
             placeholder={project && !project.image ? project.image : 'image'}
             onChange={changeHandler}
-            as='textarea'
-            rows={1}
           />
         </Form.Group>
         <Button variant='primary' type='submit'>

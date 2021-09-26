@@ -1,33 +1,15 @@
 import React from 'react'
 import { withRouter, Link } from 'react-router-dom'
-import { Banner } from 'react-bootstrap'
+import { Carousel } from 'react-bootstrap'
 
-// const title = {
-//   textAlign: 'center',
-//   background: 'rgba(0, 0, 0, 0.5)',
-//   color: 'white'
-// }
+const title = {
+  textAlign: 'center',
+  background: 'rgba(0, 0, 0, 0.5)',
+  color: 'white'
+}
 const Home = ({ user }) => (
   <>
-    <Banner
-      logo='My Logo'
-      url={window.location.pathname}
-      items={[
-        { content: 'Example Link', url: '/example' },
-        { content: 'Another', url: '/another' },
-        {
-          content: 'Link w/ Children',
-          url: '/children',
-          children: [
-            { content: 'John', url: '/children/john' },
-            { content: 'Jill', url: '/children/jill' },
-            { content: 'Jack', url: '/children/jack' },
-          ],
-        },
-      ]}
-    />
-    )
-    {/* <div>
+    <div>
       <br></br>
       <h1 style={title}> Welcome to BuildIt. What will you build next?</h1>
     </div>
@@ -71,7 +53,7 @@ const Home = ({ user }) => (
           </p>
         </Carousel.Caption>
       </Carousel.Item>
-    </Carousel> */}
+    </Carousel>
   </>
 )
 

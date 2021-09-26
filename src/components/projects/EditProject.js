@@ -5,13 +5,13 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import ProjectForm from '../forms/ProjectForm'
 import { updateProject } from '../../api/projects'
+
 class EditProject extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      project: {
-      },
+      project: {},
       updated: false
     }
   }
@@ -41,6 +41,19 @@ class EditProject extends Component {
     })
   }
 
+  arrayMaker = (input) => {
+    return input.split(',')
+  }
+
+  handleArrayChange = (event) => {
+    const updatedProject = this.state.project
+    const inputList = this.arrayMaker(event.target.value)
+    updatedProject[event.target.name] = inputList
+    this.setState({
+      project: updatedProject
+    })
+  }
+
   //  updatedField)
 
   //     this.setState({ project: editedProject })   const editedProject = Object.assign(this.state.project,
@@ -57,18 +70,21 @@ class EditProject extends Component {
 
   render () {
     const { project, updated } = this.state
-    const { handleChange, handleSubmit } = this
+    const { handleChange, handleSubmit, handleArrayChange } = this
 
     if (updated) {
       return <Redirect to={`/my-projects/${this.props.match.params.id}`} />
     }
 
     return (
-      <ProjectForm
-        project={project}
-        formHandler={handleSubmit}
-        changeHandler={handleChange}
-      />
+      <>
+        <ProjectForm
+          project={project}
+          formHandler={handleSubmit}
+          changeHandler={handleChange}
+          listHandler={handleArrayChange}
+        />
+      </>
     )
   }
 }
