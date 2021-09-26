@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter, Redirect } from 'react-router-dom'
+import { Link, withRouter, Redirect } from 'react-router-dom'
 import { Card, Col, Row, Button } from 'react-bootstrap'
 import { deleteProject } from '../../api/projects.js'
 import axios from 'axios'
@@ -51,7 +51,7 @@ class MyProject extends Component {
 
   destroy = () => {
     const { user } = this.props
-    deleteProject(user, this.props.match.params.id)
+    deleteProject(this.props.match.params.id, user)
       .then(() => this.setState({ deleted: true }))
       .catch(console.error)
   }
@@ -74,6 +74,9 @@ class MyProject extends Component {
             <Card.Body style={cardBody}>
               <Card.Title style={cardTitle}>{project.name}</Card.Title>
               <Button onClick={this.destroy}>Delete</Button>
+              <Link to={`/my-projects/${project._id}/edit`}>
+                <button>Edit</button>
+              </Link>
               <Card.Text>
                 Tools :{' '}
                 {project.tools ? project.tools.map(asList) : 'Loading...'}

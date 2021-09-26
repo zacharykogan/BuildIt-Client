@@ -46,10 +46,31 @@ export const createProject = (project, user) => {
   })
 }
 
-export const deleteProject = (user, id) => {
+export const deleteProject = (id, user) => {
   return axios({
     method: 'DELETE',
     url: apiUrl + `/project/${id}`,
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
+
+export const updateProject = (id, project, user) => {
+  return axios({
+    method: 'PATCH',
+    url: apiUrl + `/my-projects/${id}`,
+    data: {
+      project: {
+        name: project.name,
+        category: project.category,
+        description: project.description,
+        image: project.image,
+        tools: project.tools,
+        materials: project.materials,
+        steps: [project.steps]
+      }
+    },
     headers: {
       Authorization: `Bearer ${user.token}`
     }
