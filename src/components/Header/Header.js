@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { Nav, NavDropdown } from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 const myAccount = {
   align: 'right',
   color: 'white'
@@ -30,7 +30,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
-    <NavLink to='/projects' className='nav-link'>
+    <NavLink to='/' className='nav-link'>
       Home
     </NavLink>
   </Fragment>
@@ -39,9 +39,9 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <Navbar sticky='top' bg='dark' variant='dark' expand='md'>
     <Navbar.Brand>
-      <Link to='/projects' style={{ color: '#FFF', textDecoration: 'none' }}>
+      <NavLink to='/projects' style={{ color: '#FFF', textDecoration: 'none' }}>
         🪜 BuildIT
-      </Link>
+      </NavLink>
     </Navbar.Brand>
     <Navbar.Toggle variant='dark' aria-controls='basic-navbar-nav' />
     <Navbar.Collapse variant='dark' id='basic-navbar-nav'>

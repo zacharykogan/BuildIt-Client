@@ -16,6 +16,19 @@ class CreateProject extends Component {
     }
   }
 
+  arrayMaker = (input) => {
+    return input.split(',')
+  }
+
+  handleArrayChange = (event) => {
+    const updatedProject = this.state.project
+    const inputList = this.arrayMaker(event.target.value)
+    updatedProject[event.target.name] = inputList
+    this.setState({
+      project: updatedProject
+    })
+  }
+
   handleChange = (event) => {
     const updatedProject = this.state.project
     updatedProject[event.target.name] = event.target.value
@@ -30,7 +43,6 @@ class CreateProject extends Component {
     const { msgAlert, history, user } = this.props
 
     createProject(this.state.project, user)
-      .then((res) => console.log(res.data.user))
       .then(() =>
         msgAlert({
           heading: 'Project Created Success',
@@ -64,8 +76,9 @@ class CreateProject extends Component {
   render () {
     return (
       <ProjectForm
-        formHandler = {this.onCreateProject}
-        changeHandler = {this.handleChange}
+        formHandler={this.onCreateProject}
+        changeHandler={this.handleChange}
+        listHandler={this.handleArrayChange}
       />
     )
   }

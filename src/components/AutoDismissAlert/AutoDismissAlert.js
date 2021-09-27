@@ -34,7 +34,6 @@ render () {
 
   return (
     <Alert
-      dismissible
       show={this.state.show}
       variant={variant}
       onClose={this.handleClose}>

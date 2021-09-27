@@ -32,7 +32,6 @@ const card = {
 }
 
 const Projects = (props) => {
-  // coming in from props, from clicking on the dropdown menu
   const { projects } = props
 
   const projectList = projects.map((item) => (

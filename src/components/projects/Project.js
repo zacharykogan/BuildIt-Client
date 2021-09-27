@@ -32,6 +32,10 @@ const cardBody = {
   color: 'white'
 }
 
+const steps = {
+  fontSize: '16px',
+  fontWeight: '400'
+}
 class Project extends Component {
   constructor (props) {
     super(props)
@@ -51,19 +55,38 @@ class Project extends Component {
     const { project } = this.state
     const asList = (item, index) => (<li key={index}>{item}</li>)
     return (
-      <Row>
-        <Col xs={10} md={8} style={cardCol}>
-          <Card style={card} className='m-auto'>
-            <Card.Img variant='top' src={`${project.image}`} style={cardImg} />
-            <Card.Body style={cardBody}>
-              <Card.Title style={cardTitle}>{project.name}</Card.Title>
-              <Card.Text>Tools : {project.tools ? project.tools.map(asList) : 'Loading...' }</Card.Text>
-              <Card.Text>Materials : {project.materials ? project.materials.map(asList) : 'Loading...'}</Card.Text>
-              <Card.Text>Steps :<ol>{project.steps ? project.steps.map(asList) : 'Loading...'}</ol></Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      </Row>
+      <>
+        <Row>
+          <Col xs={10} md={8} style={cardCol}>
+            <Card style={card} className='m-auto'>
+              <Card.Img
+                variant='top'
+                src={`${project.image}`}
+                style={cardImg}
+              />
+              <Card.Body style={cardBody}>
+                <Card.Title style={cardTitle}>{project.name}</Card.Title>
+                <Card.Text>
+                  Tools :{' '}
+                  {project.tools ? project.tools.map(asList) : 'Loading...'}
+                </Card.Text>
+                <Card.Text>
+                  Materials :{' '}
+                  {project.materials
+                    ? project.materials.map(asList)
+                    : 'Loading...'}
+                </Card.Text>
+                <Card.Title style={steps}>
+                  Steps :
+                  <ol>
+                    {project.steps ? project.steps.map(asList) : 'Loading...'}
+                  </ol>
+                </Card.Title>
+              </Card.Body>
+            </Card>
+          </Col>
+        </Row>
+      </>
     )
   }
 }

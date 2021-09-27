@@ -37,7 +37,7 @@ export const createProject = (project, user) => {
         image: project.image,
         tools: project.tools,
         materials: project.materials,
-        steps: [project.steps]
+        steps: project.steps
       }
     },
     headers: {
@@ -68,7 +68,7 @@ export const updateProject = (id, project, user) => {
         image: project.image,
         tools: project.tools,
         materials: project.materials,
-        steps: [project.steps]
+        steps: project.steps
       }
     },
     headers: {

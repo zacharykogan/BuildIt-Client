@@ -51,7 +51,7 @@ onSignIn = (event) => {
         variant: 'success'
       })
     )
-    .then(() => history.push('/'))
+    .then(() => history.push('/projects'))
     .catch((error) => {
       this.setState({ email: '', password: '' })
       msgAlert({
@@ -88,6 +88,7 @@ render () {
               name='password'
               value={password}
               type='password'
+              autoComplete='on'
               placeholder='Password'
               onChange={this.handleChange}
             />
