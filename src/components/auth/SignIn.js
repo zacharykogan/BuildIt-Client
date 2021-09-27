@@ -88,6 +88,7 @@ render () {
               name='password'
               value={password}
               type='password'
+              autoComplete='on'
               placeholder='Password'
               onChange={this.handleChange}
             />

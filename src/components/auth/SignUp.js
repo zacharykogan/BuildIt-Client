@@ -77,6 +77,7 @@ render () {
               name='password'
               value={password}
               type='password'
+              autoComplete='on'
               placeholder='Password'
               onChange={this.handleChange}
             />
@@ -88,6 +89,7 @@ render () {
               name='passwordConfirmation'
               value={passwordConfirmation}
               type='password'
+              autoComplete='on'
               placeholder='Confirm Password'
               onChange={this.handleChange}
             />
