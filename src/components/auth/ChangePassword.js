@@ -7,6 +7,21 @@ import { changePasswordSuccess, changePasswordFailure } from '../AutoDismissAler
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+const form = {
+  background: 'rgba(0, 0, 0, 0.5)',
+  margin: 'auto',
+  padding: '25px',
+  width: 'md',
+  color: 'rgba(240, 230, 180, 0.8)'
+}
+const button = {
+  color: 'blue',
+  border: 'none',
+  background: 'rgba(240, 230, 180, 0.8)',
+  fontSize: '1.2em',
+  fontWeight: 'bolder',
+  width: '100%'
+}
 class ChangePassword extends Component {
   constructor (props) {
     super(props)
@@ -51,7 +66,7 @@ render () {
 
   return (
     <div className='row'>
-      <div className='col-sm-10 col-md-8 mx-auto mt-5'>
+      <div style={form} className='col-sm-10 col-md-8 mx-auto mt-5'>
         <h3>Change Password</h3>
         <Form onSubmit={this.onChangePassword}>
           <Form.Group controlId='oldPassword'>
@@ -65,6 +80,7 @@ render () {
               onChange={this.handleChange}
             />
           </Form.Group>
+          <br></br>
           <Form.Group controlId='newPassword'>
             <Form.Label>New Password</Form.Label>
             <Form.Control
@@ -76,7 +92,10 @@ render () {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button variant='primary' type='submit'>Submit</Button>
+          <br></br>
+          <Button style={button} variant='primary' type='submit'>
+            Change Password
+          </Button>
         </Form>
       </div>
     </div>

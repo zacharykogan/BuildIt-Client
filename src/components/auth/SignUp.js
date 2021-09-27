@@ -85,7 +85,7 @@ render () {
               placeholder='Enter email'
               onChange={this.handleChange}
             />
-          </Form.Group>
+          </Form.Group><br></br>
           <Form.Group controlId='password'>
             <Form.Label>Password</Form.Label>
             <Form.Control
