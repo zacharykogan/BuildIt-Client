@@ -8,7 +8,7 @@ const card = {
   border: 'none',
   borderRadius: '10px',
   width: 'auto',
-  background: 'black'
+  background: 'rgba(0, 0, 0, 0.7)'
 }
 
 const cardImg = {
@@ -27,7 +27,6 @@ const cardTitle = {
 }
 
 const cardBody = {
-  backgroundColor: 'black',
   borderRadius: '0px 0px 8px 8px',
   color: 'white'
 }

@@ -5,17 +5,11 @@ import { deleteProject } from '../../api/projects.js'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 
-const card = {
-  border: 'none',
-  borderRadius: '10px',
-  width: 'auto',
-  background: 'black'
-}
-
 const cardImg = {
   margin: 'auto',
   padding: '25px',
-  width: 'md'
+  width: 'md',
+  height: '200px'
 }
 
 const cardCol = {
@@ -28,9 +22,15 @@ const cardTitle = {
 }
 
 const cardBody = {
-  backgroundColor: 'black',
   borderRadius: '0px 0px 8px 8px',
   color: 'white'
+}
+
+const card = {
+  border: 'none',
+  borderRadius: '10px',
+  width: '350',
+  background: 'rgba(0, 0, 0, 0.7)'
 }
 
 class MyProject extends Component {

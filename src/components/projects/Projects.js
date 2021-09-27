@@ -19,7 +19,6 @@ const cardTitle = {
 }
 
 const cardBody = {
-  background: 'rgba(0, 0, 0, 0.5)',
   borderRadius: '0px 0px 8px 8px',
   color: 'white'
 }
@@ -28,7 +27,7 @@ const card = {
   border: 'none',
   borderRadius: '10px',
   width: '350',
-  background: 'rgba(0, 0, 0, 0.5)'
+  background: 'rgba(0, 0, 0, 0.7)'
 }
 
 const Projects = (props) => {
@@ -46,9 +45,6 @@ const Projects = (props) => {
         </Card.Body>
       </Card>
     </Col>
-    // <div key={item._id} className='col-3 mt-5'>
-
-    // </div>
   ))
 
   return (
