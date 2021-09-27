@@ -46,6 +46,7 @@ class EditProject extends Component {
   }
 
   handleArrayChange = (event) => {
+    event.preventDefault()
     const updatedProject = this.state.project
     const inputList = this.arrayMaker(event.target.value)
     updatedProject[event.target.name] = inputList

@@ -56,8 +56,6 @@ const ProjectForm = ({ project, formHandler, changeHandler, listHandler }) => (
             type='tools'
             placeholder={project && project.tools ? project.tools : 'Tools'}
             onChange={listHandler}
-            as='textarea'
-            rows={3}
           />
         </Form.Group>
         <Form.Group controlId='materials'>
@@ -71,8 +69,6 @@ const ProjectForm = ({ project, formHandler, changeHandler, listHandler }) => (
               project && project.materials ? project.materials : 'Materials'
             }
             onChange={listHandler}
-            as='textarea'
-            rows={3}
           />
         </Form.Group>
         <Form.Group controlId='steps'>
