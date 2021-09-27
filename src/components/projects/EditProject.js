@@ -5,7 +5,7 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import ProjectForm from '../forms/ProjectForm'
 import { updateProject } from '../../api/projects'
-
+import { editProjectSuccess, editProjectFailure } from '../AutoDismissAlert/messages'
 class EditProject extends Component {
   constructor (props) {
     super(props)
@@ -62,11 +62,24 @@ class EditProject extends Component {
   handleSubmit = event => {
     event.preventDefault()
     const project = this.state.project
-    const { user } = this.props
+    const { user, msgAlert } = this.props
 
     updateProject(this.props.match.params.id, project, user)
       .then(() => this.setState({ updated: true }))
-      .catch(console.error)
+      .then(() =>
+        msgAlert({
+          heading: 'Edit Project Success',
+          message: editProjectSuccess,
+          variant: 'success'
+        })
+      )
+      .catch((error) => {
+        msgAlert({
+          heading: 'Edit Project Failed with error: ' + error.message,
+          message: editProjectFailure,
+          variant: 'danger'
+        })
+      })
   }
 
   render () {
