@@ -50,9 +50,6 @@ const Header = ({ user }) => (
     <Navbar.Collapse variant='dark' id='basic-navbar-nav'>
       <Nav className='ms-auto'>
         {' '}
-        {user && (
-          <span className='navbar-text mr-2'>Welcome, {user.email.name}</span>
-        )}
         {alwaysOptions}
       </Nav>
       <NavDropdown
