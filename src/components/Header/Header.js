@@ -33,13 +33,16 @@ const alwaysOptions = (
     <NavLink to='/' className='nav-link'>
       Home
     </NavLink>
+    <NavLink to='/projects' className='nav-link'>
+      Projects
+    </NavLink>
   </Fragment>
 )
 
 const Header = ({ user }) => (
   <Navbar sticky='top' bg='dark' variant='dark' expand='md'>
     <Navbar.Brand>
-      <NavLink to='/projects' style={{ color: '#FFF', textDecoration: 'none' }}>
+      <NavLink to='/' style={{ color: '#FFF', textDecoration: 'none' }}>
         🪜 BuildIT
       </NavLink>
     </Navbar.Brand>

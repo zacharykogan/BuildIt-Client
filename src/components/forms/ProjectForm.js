@@ -1,9 +1,23 @@
 import React from 'react'
 import { Button, Form } from 'react-bootstrap'
-
+const form = {
+  background: 'rgba(0, 0, 0, 0.5)',
+  margin: 'auto',
+  padding: '25px',
+  width: 'md',
+  color: 'rgba(240, 230, 180, 0.8)'
+}
+const button = {
+  color: 'blue',
+  border: 'none',
+  background: 'rgba(240, 230, 180, 0.8)',
+  fontSize: '1.2em',
+  fontWeight: 'bolder',
+  width: '100%'
+}
 const ProjectForm = ({ project, formHandler, changeHandler, listHandler }) => (
   <div className='row'>
-    <div className='col-sm-10 col-md-8 mx-auto mt-5'>
+    <div style={form}className='col-sm-10 col-md-8 mx-auto mt-5'>
       <h3>{!project ? 'Create Project' : 'Edit Project'}</h3>
       <Form onSubmit={formHandler}>
         <Form.Group controlId='name'>
@@ -54,7 +68,11 @@ const ProjectForm = ({ project, formHandler, changeHandler, listHandler }) => (
             name='tools'
             value={project ? project.tools : null}
             type='tools'
-            placeholder={project && project.tools ? project.tools : 'Tools'}
+            placeholder={
+              project && project.tools
+                ? project.tools
+                : 'Tools separated by commas'
+            }
             onChange={listHandler}
           />
         </Form.Group>
@@ -66,7 +84,9 @@ const ProjectForm = ({ project, formHandler, changeHandler, listHandler }) => (
             value={project ? project.materials : null}
             type='materials'
             placeholder={
-              project && project.materials ? project.materials : 'Materials'
+              project && project.materials
+                ? project.materials
+                : 'Materials, separated by commas'
             }
             onChange={listHandler}
           />
@@ -78,7 +98,11 @@ const ProjectForm = ({ project, formHandler, changeHandler, listHandler }) => (
             name='steps'
             value={project ? project.steps : null}
             type='steps'
-            placeholder={project && project.steps ? project.steps : 'Steps'}
+            placeholder={
+              project && project.steps
+                ? project.steps
+                : 'Steps, separated by commas'
+            }
             onChange={listHandler}
             as='textarea'
             rows={7}
@@ -91,11 +115,14 @@ const ProjectForm = ({ project, formHandler, changeHandler, listHandler }) => (
             name='image'
             value={project ? project.image : null}
             type='image'
-            placeholder={project && !project.image ? project.image : 'image'}
+            placeholder={
+              project && !project.image ? project.image : 'image url'
+            }
             onChange={changeHandler}
+            as='textarea'
           />
-        </Form.Group>
-        <Button variant='primary' type='submit'>
+        </Form.Group><br></br>
+        <Button style={button}variant='primary' type='submit'>
           Submit
         </Button>
       </Form>

@@ -46,7 +46,7 @@ onSignIn = (event) => {
     .then((res) => setUser(res.data.user))
     .then(() =>
       msgAlert({
-        heading: 'Sign In Success',
+        heading: 'Welcome to BuildIt',
         message: signInSuccess,
         variant: 'success'
       })

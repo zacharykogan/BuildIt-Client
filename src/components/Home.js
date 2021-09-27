@@ -4,16 +4,27 @@ import { Carousel } from 'react-bootstrap'
 
 const title = {
   textAlign: 'center',
+  color: 'rgba(240, 230, 180, 0.8)'
+}
+const header = {
   background: 'rgba(0, 0, 0, 0.5)',
-  color: 'white'
+  margin: 'auto',
+  padding: '25px',
+  width: 'md',
+  color: 'rgba(240, 230, 180, 0.8)'
+}
+const carousel = {
+  color: 'black'
 }
 const Home = ({ user }) => (
   <>
-    <div>
+    <br></br>
+    <div style={header}>
       <br></br>
       <h1 style={title}> Welcome to BuildIt. What will you build next?</h1>
     </div>
-    <Carousel>
+    <br></br>
+    <Carousel style={carousel}>
       <Carousel.Item>
         <Link style={{ margin: 'auto' }} to={'/sign-in'}>
           <img
@@ -23,20 +34,26 @@ const Home = ({ user }) => (
           />
         </Link>
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3 style={carousel}>Learn to build amazing things</h3>
+          <p style={carousel}>
+            Our step by step instructions let anyone with any experience get
+            started.
+          </p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className='d-block w-100'
-          src='https://diyprojects.com/wp-content/uploads/2016/08/diy-wood-font-style-on-wooden-DIY-Crafts-Sites-ss-FEATURED.jpg'
-          alt='Second slide'
-        />
-
+        <Link style={{ margin: 'auto' }} to={'/sign-in'}>
+          <img
+            className='d-block w-100'
+            src='https://i.ytimg.com/vi/u3NBJnsEHxg/maxresdefault.jpg'
+            alt='Second slide'
+          />
+        </Link>
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3 style={carousel}>Master new skills</h3>
+          <p style={carousel}>
+            Learn to work with various tools and materials while having fun.
+          </p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -47,9 +64,10 @@ const Home = ({ user }) => (
         />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          <h3 style={carousel}>Build memories</h3>
+          <p style={carousel}>
+            Work with friends and family or fellow users from around the world,
+            to build more than furniture.
           </p>
         </Carousel.Caption>
       </Carousel.Item>

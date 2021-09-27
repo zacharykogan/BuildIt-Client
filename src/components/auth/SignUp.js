@@ -7,6 +7,22 @@ import { signUpSuccess, signUpFailure } from '../AutoDismissAlert/messages'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
+const form = {
+  background: 'rgba(0, 0, 0, 0.5)',
+  margin: 'auto',
+  padding: '25px',
+  width: 'md',
+  color: 'rgba(240, 230, 180, 0.8)'
+}
+const button = {
+  color: 'blue',
+  border: 'none',
+  background: 'rgba(240, 230, 180, 0.8)',
+  fontSize: '1.2em',
+  fontWeight: 'bolder',
+  width: '100%'
+}
+
 class SignUp extends Component {
   constructor (props) {
     super(props)
@@ -56,8 +72,8 @@ render () {
 
   return (
     <div className='row'>
-      <div className='col-sm-10 col-md-8 mx-auto mt-5'>
-        <h3>Sign Up</h3>
+      <div style={form} className='col-sm-10 col-md-8 mx-auto mt-5'>
+        <h2>Sign Up</h2>
         <Form onSubmit={this.onSignUp}>
           <Form.Group controlId='email'>
             <Form.Label>Email address</Form.Label>
@@ -94,10 +110,12 @@ render () {
               onChange={this.handleChange}
             />
           </Form.Group>
-          <Button variant='primary' type='submit'>
-            Submit
+          <br></br>
+          <Button style={button} type='submit'>
+            Sign Up
           </Button>
         </Form>
+        <br></br>
       </div>
     </div>
   )
