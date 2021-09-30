@@ -25,7 +25,7 @@ const ProjectForm = ({ project, formHandler, changeHandler, listHandler }) => (
           <Form.Control
             required
             name='name'
-            value={project ? project.name : null}
+            value={project ? project.name : ''}
             type='name'
             placeholder={project && project.name ? project.name : 'Title'}
             onChange={changeHandler}
@@ -36,7 +36,7 @@ const ProjectForm = ({ project, formHandler, changeHandler, listHandler }) => (
           <Form.Control
             required
             name='category'
-            value={project ? project.category : null}
+            value={project ? project.category : ''}
             type='category'
             placeholder={
               project && project.category ? project.category : 'Category'
@@ -49,7 +49,7 @@ const ProjectForm = ({ project, formHandler, changeHandler, listHandler }) => (
           <Form.Control
             required
             name='description'
-            value={project ? project.description : null}
+            value={project ? project.description : ''}
             type='Description'
             placeholder={
               project && project.description
@@ -66,7 +66,7 @@ const ProjectForm = ({ project, formHandler, changeHandler, listHandler }) => (
           <Form.Control
             required
             name='tools'
-            value={project ? project.tools : null}
+            value={project ? project.tools : ''}
             type='tools'
             placeholder={
               project && project.tools
@@ -81,7 +81,7 @@ const ProjectForm = ({ project, formHandler, changeHandler, listHandler }) => (
           <Form.Control
             required
             name='materials'
-            value={project ? project.materials : null}
+            value={project ? project.materials : ''}
             type='materials'
             placeholder={
               project && project.materials
@@ -96,7 +96,7 @@ const ProjectForm = ({ project, formHandler, changeHandler, listHandler }) => (
           <Form.Control
             required
             name='steps'
-            value={project ? project.steps : null}
+            value={project ? project.steps : ''}
             type='steps'
             placeholder={
               project && project.steps
@@ -113,7 +113,7 @@ const ProjectForm = ({ project, formHandler, changeHandler, listHandler }) => (
           <Form.Control
             required
             name='image'
-            value={project ? project.image : null}
+            value={project ? project.image : ''}
             type='image'
             placeholder={
               project && !project.image ? project.image : 'image url'
