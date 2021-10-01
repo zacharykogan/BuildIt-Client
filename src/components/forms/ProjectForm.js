@@ -146,7 +146,7 @@ class ProjectForm extends Component {
               />
             </Form.Group>
             <br></br>
-            <Button class='text-center' style={button} variant='primary' type='submit'>
+            <Button className='text-center' style={button} variant='primary' type='submit'>
               Submit
             </Button>
             <Link
