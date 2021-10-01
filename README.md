@@ -1,7 +1,7 @@
 
 Welcome to BuildIt
 
-<img src="https://i.ibb.co/s525gB9/tent-fire-copy.png" alt="drawing" width="100"/>
+<img src="https://i.ibb.co/hsczRCv/logo.png" alt="drawing" width="100"/>
 
 App URL: https://zacharykogan.github.io/BuiltIT-Client/
 
