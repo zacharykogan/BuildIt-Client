@@ -32,6 +32,14 @@ const card = {
   width: '350',
   background: 'rgba(0, 0, 0, 0.7)'
 }
+const button = {
+  color: 'blue',
+  border: 'none',
+  background: 'rgba(240, 230, 180, 0.8)',
+  fontSize: '1.2em',
+  fontWeight: 'bolder',
+  width: '100%'
+}
 
 class MyProject extends Component {
   constructor (props) {
@@ -47,6 +55,11 @@ class MyProject extends Component {
     axios(`${apiUrl}/my-projects/${this.props.match.params.id}`)
       .then((res) => this.setState({ project: res.data.project }))
       .catch(console.error)
+  }
+
+  handleEditButton (path) {
+    const { history } = this.props
+    history.push(path)
   }
 
   destroy = () => {
@@ -73,9 +86,10 @@ class MyProject extends Component {
             <Card.Img variant='top' src={`${project.image}`} style={cardImg} />
             <Card.Body style={cardBody}>
               <Card.Title style={cardTitle}>{project.name}</Card.Title>
-              <Button onClick={this.destroy}>Delete</Button>
-              <Link to={`/my-projects/${project._id}/edit`}>
-                <button>Edit</button>
+              <Button style={button} onClick={this.destroy}>Delete</Button>
+              <Link className="btn"
+                role="button" style={button} to={`/my-projects/${project._id}/edit`}>
+                Edit
               </Link>
               <Card.Text>
                 Tools :{' '}

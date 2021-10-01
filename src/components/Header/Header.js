@@ -2,10 +2,7 @@ import React, { Fragment } from 'react'
 import { Nav, NavDropdown } from 'react-bootstrap'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link } from 'react-router-dom'
-const myAccount = {
-  align: 'right',
-  color: 'white'
-}
+
 const authenticatedOptions = (
   <Fragment>
     <Nav.Link as={Link} to='/my-projects' className='nav-link'>
@@ -56,17 +53,15 @@ const Header = ({ user }) => (
       <Nav className='ms-auto'> {alwaysOptions}</Nav>
       <>
         <NavDropdown
-          style={myAccount}
           variant='dark'
-          title='My Account '
-          id='nav-dropdown'>
-          <NavDropdown variant='dark'>
+          title='My Account '>
+          <NavDropdown.Item variant='dark'>
             {user && (
               <span className='navbar-text mr-2'>
                 Welcome, {user.email.name}
               </span>
             )}
-          </NavDropdown >
+          </NavDropdown.Item>
           <NavDropdown.Item variant='dark'>
             {user ? authenticatedOptions : unauthenticatedOptions}
           </NavDropdown.Item>
