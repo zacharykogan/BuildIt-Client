@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Form } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 const form = {
   background: 'rgba(0, 0, 0, 0.5)',
   margin: 'auto',
@@ -8,12 +9,25 @@ const form = {
   color: 'rgba(240, 230, 180, 0.8)'
 }
 const button = {
-  color: 'blue',
+  color: 'black',
   border: 'none',
   background: 'rgba(240, 230, 180, 0.8)',
   fontSize: '1.2em',
   fontWeight: 'bolder',
-  width: '100%'
+  width: '90%',
+  marginBottom: '6px',
+  marginLeft: '6%',
+  textAlign: 'center'
+}
+const cancelButton = {
+  color: 'black',
+  border: 'auto',
+  background: 'rgba(240, 230, 180, 0.3',
+  fontSize: '1.2em',
+  fontWeight: 'bolder',
+  width: '90%',
+  marginLeft: '6%',
+  marginBottom: '6px'
 }
 class ProjectForm extends Component {
   constructor (props) {
@@ -132,9 +146,20 @@ class ProjectForm extends Component {
               />
             </Form.Group>
             <br></br>
-            <Button style={button} variant='primary' type='submit'>
+            <Button class='text-center' style={button} variant='primary' type='submit'>
               Submit
             </Button>
+            <Link
+              className='btn'
+              role='button'
+              style={cancelButton}
+              to={
+                !project
+                  ? '/my-projects/'
+                  : `/my-projects/${project._id}`
+              }>
+              Cancel
+            </Link>
           </Form>
         </div>
       </div>

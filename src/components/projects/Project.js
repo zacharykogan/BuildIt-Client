@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { Card, Col, Row } from 'react-bootstrap'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
@@ -35,6 +35,17 @@ const steps = {
   fontSize: '16px',
   fontWeight: '400'
 }
+
+const backButton = {
+  color: 'black',
+  border: 'auto',
+  background: 'rgba(240, 230, 180, 0.3)',
+  fontSize: '1.2em',
+  fontWeight: 'bolder',
+  width: '100%',
+  marginBottom: '6px'
+}
+
 class Project extends Component {
   constructor (props) {
     super(props)
@@ -81,6 +92,13 @@ class Project extends Component {
                     {project.steps ? project.steps.map(asList) : 'Loading...'}
                   </ol>
                 </Card.Title>
+                <Link
+                  className='btn'
+                  role='button'
+                  style={backButton}
+                  to={'/projects/'}>
+                  Back
+                </Link>
               </Card.Body>
             </Card>
           </Col>
