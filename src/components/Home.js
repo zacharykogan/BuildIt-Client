@@ -4,10 +4,10 @@ import { Carousel } from 'react-bootstrap'
 
 const title = {
   textAlign: 'center',
-  color: 'rgba(240, 230, 180, 0.8)'
+  color: 'black'
 }
 const header = {
-  background: 'rgba(0, 0, 0, 0.5)',
+  background: 'rgba(240, 230, 180, 0.42)',
   margin: 'auto',
   padding: '25px',
   width: 'md',
