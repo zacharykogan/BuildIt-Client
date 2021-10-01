@@ -86,7 +86,7 @@ class MyProject extends Component {
             <Card.Img variant='top' src={`${project.image}`} style={cardImg} />
             <Card.Body style={cardBody}>
               <Card.Title style={cardTitle}>{project.name}</Card.Title>
-              <Button style={button} onClick={this.destroy}>Delete</Button>
+              <Button style={button} onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.destroy() }}>Delete</Button>
               <Link className="btn"
                 role="button" style={button} to={`/my-projects/${project._id}/edit`}>
                 Edit
