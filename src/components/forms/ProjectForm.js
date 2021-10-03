@@ -9,31 +9,29 @@ const form = {
   color: 'rgba(240, 230, 180, 0.8)'
 }
 const button = {
-  color: 'black',
-  border: 'none',
-  background: 'rgba(240, 230, 180, 0.8)',
+  color: 'yellow',
+  border: 'auto',
+  background: 'rgba(240, 230, 180, 0.3)',
   fontSize: '1.2em',
   fontWeight: 'bolder',
   width: '90%',
   marginBottom: '6px',
-  marginLeft: '6%',
-  textAlign: 'center'
+  marginLeft: '5%'
 }
 const cancelButton = {
   color: 'black',
   border: 'auto',
-  background: 'rgba(240, 230, 180, 0.3',
+  background: 'rgba(240, 230, 180, 0.8)',
   fontSize: '1.2em',
   fontWeight: 'bolder',
-  width: '90%',
-  marginLeft: '6%',
+  width: '100%',
   marginBottom: '6px'
 }
 class ProjectForm extends Component {
   constructor (props) {
     super(props)
 
-    this.state = { value: '' }
+    this.state = {}
   }
 
   render () {
@@ -52,6 +50,7 @@ class ProjectForm extends Component {
                 type='name'
                 placeholder={project && project.name ? project.name : 'Title'}
                 onChange={changeHandler}
+                passive='true'
               />
             </Form.Group>
             <Form.Group controlId='category'>
@@ -65,6 +64,7 @@ class ProjectForm extends Component {
                   project && project.category ? project.category : 'Category'
                 }
                 onChange={changeHandler}
+                passive='true'
               />
             </Form.Group>
             <Form.Group controlId='description'>
@@ -82,6 +82,7 @@ class ProjectForm extends Component {
                 onChange={changeHandler}
                 as='textarea'
                 rows={3}
+                passive='true'
               />
             </Form.Group>
             <Form.Group controlId='tools'>
@@ -97,6 +98,7 @@ class ProjectForm extends Component {
                     : 'Tools separated by commas'
                 }
                 onChange={listHandler}
+                passive='true'
               />
             </Form.Group>
             <Form.Group controlId='materials'>
@@ -129,6 +131,7 @@ class ProjectForm extends Component {
                 onChange={listHandler}
                 as='textarea'
                 rows={7}
+                passive='true'
               />
             </Form.Group>
             <Form.Group controlId='image'>
@@ -143,21 +146,22 @@ class ProjectForm extends Component {
                 }
                 onChange={changeHandler}
                 as='textarea'
+                passive='true'
               />
             </Form.Group>
             <br></br>
-            <Button className='text-center' style={button} variant='primary' type='submit'>
+            <Button
+              className='text-center'
+              style={button}
+              variant='primary'
+              type='submit'>
               Submit
             </Button>
             <Link
               className='btn'
               role='button'
               style={cancelButton}
-              to={
-                !project
-                  ? '/my-projects/'
-                  : `/my-projects/${project._id}`
-              }>
+              to={!project ? '/my-projects/' : `/my-projects/${project._id}`}>
               Cancel
             </Link>
           </Form>

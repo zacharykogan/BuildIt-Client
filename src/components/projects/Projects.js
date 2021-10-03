@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import { Card, Col, Row } from 'react-bootstrap'
+import axios from 'axios'
+import apiUrl from '../../apiConfig'
 
 const cardImg = {
   margin: 'auto',
@@ -30,32 +32,45 @@ const card = {
   background: 'rgba(0, 0, 0, 0.7)'
 }
 
-const Projects = (props) => {
-  const { projects } = props
+class Projects extends Component {
+  constructor (props) {
+    super(props)
 
-  const projectList = projects.map((item) => (
-    <Col xs={12} md={6} lg={4} xl={4} key={item._id} style={cardCol}>
-      <Card style={card} className='m-auto'>
-        <Link style={{ margin: 'auto' }} to={`/projects/${item._id}`}>
-          <Card.Img variant='top' src={`${item.image}`} style={cardImg} />
-        </Link>
-        <Card.Body style={cardBody}>
-          <Card.Title style={cardTitle}>{item.name}</Card.Title>
-          <Card.Text>{item.description}</Card.Text>
-        </Card.Body>
-      </Card>
-    </Col>
-  ))
+    this.state = {}
+  }
 
-  return (
-    <Row>
-      <h3 className='text-light mt-5'></h3>
-      <Col xs={12} style={{ marginTop: '10px' }}>
-        <Row>{projectList}</Row>
+  componentDidMount () {
+    axios(`${apiUrl}/projects`)
+      .then((res) => this.setState({ project: res.data.project }))
+      .catch(console.error)
+  }
+
+  render () {
+    const { projects } = this.props
+
+    const projectList = projects.map((item) => (
+      <Col xs={12} md={6} lg={4} xl={4} key={item._id} style={cardCol}>
+        <Card style={card} className='m-auto'>
+          <Link style={{ margin: 'auto' }} to={`/projects/${item._id}`}>
+            <Card.Img variant='top' src={`${item.image}`} style={cardImg} />
+          </Link>
+          <Card.Body style={cardBody}>
+            <Card.Title style={cardTitle}>{item.name}</Card.Title>
+            <Card.Text>{item.description}</Card.Text>
+          </Card.Body>
+        </Card>
       </Col>
-      <div className='col-12 mt-5'></div>
-    </Row>
-  )
-}
+    ))
 
+    return (
+      <Row>
+        <h3 className='text-light mt-5'></h3>
+        <Col xs={12} style={{ marginTop: '10px' }}>
+          <Row>{projectList}</Row>
+        </Col>
+        <div className='col-12 mt-5'></div>
+      </Row>
+    )
+  }
+}
 export default withRouter(Projects)
