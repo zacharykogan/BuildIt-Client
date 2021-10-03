@@ -31,7 +31,7 @@ const cardBody = {
   color: 'white'
 }
 
-class MyProject extends Component {
+class MyProjects extends Component {
   constructor (props) {
     super(props)
 
@@ -51,20 +51,19 @@ class MyProject extends Component {
     const { projects } = this.state
 
     const projectList = projects.map((item) => (
-      <>
-        <Col xs={12} md={6} lg={4} xl={4} key={item._id} style={cardCol}>
-          <Card style={card} className='m-auto'>
-            <Link style={{ margin: 'auto' }} to={`/my-projects/${item._id}`}>
-              <Card.Img variant='top' src={`${item.image}`} style={cardImg} />
-            </Link>
-            <Card.Body style={cardBody}>
-              <Card.Title style={cardTitle}>{item.name}</Card.Title>
-              <Card.Text>{item.description}</Card.Text>
-            </Card.Body>
-          </Card>
-        </Col>
-      </>
+      <Col xs={12} md={6} lg={4} xl={4} key={item._id} style={cardCol}>
+        <Card style={card} className='m-auto'>
+          <Link style={{ margin: 'auto' }} to={`/my-projects/${item._id}`}>
+            <Card.Img variant='top' src={`${item.image}`} style={cardImg} />
+          </Link>
+          <Card.Body style={cardBody}>
+            <Card.Title style={cardTitle}>{item.name}</Card.Title>
+            <Card.Text>{item.description}</Card.Text>
+          </Card.Body>
+        </Card>
+      </Col>
     ))
+
     return (
       <>
         <h2>My Projects</h2>
@@ -80,4 +79,4 @@ class MyProject extends Component {
   }
 }
 
-export default withRouter(MyProject)
+export default withRouter(MyProjects)
