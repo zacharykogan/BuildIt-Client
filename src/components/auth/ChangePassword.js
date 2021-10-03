@@ -77,6 +77,7 @@ render () {
               value={oldPassword}
               type='password'
               placeholder='Old Password'
+              autoComplete='on'
               onChange={this.handleChange}
             />
           </Form.Group>
@@ -89,6 +90,7 @@ render () {
               value={newPassword}
               type='password'
               placeholder='New Password'
+              autoComplete='on'
               onChange={this.handleChange}
             />
           </Form.Group>

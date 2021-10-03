@@ -88,7 +88,7 @@ class MyProject extends Component {
   }
 
   render () {
-    const { project, deleted } = this.state
+    const { deleted } = this.state
     if (deleted) {
       return (
         <Redirect
@@ -96,18 +96,17 @@ class MyProject extends Component {
         />
       )
     }
-    const asList = (item, index) => <li key={index}>{item}</li>
+    const { project } = this.state
+    const asList = (item, index) => (<li key={index}>{item}</li>)
     return (
       <Row>
         <Col xs={10} md={8} style={cardCol}>
           <Card style={card} className='m-auto'>
             <Card.Img variant='top' src={`${project.image}`} style={cardImg} />
             <Card.Body style={cardBody}>
-              <br></br>
-              <br></br>
               <Card.Title style={cardTitle}>{project.name}</Card.Title>
               <Card.Text>
-                {project.description ? project.description : 'Loading...'}
+                {project.description}
               </Card.Text>
               <Card.Text>
                 Tools :{' '}
@@ -119,19 +118,35 @@ class MyProject extends Component {
                   ? project.materials.map(asList)
                   : 'Loading...'}
               </Card.Text>
-              <Card.Text>
+              <Card.Title >
                 Steps :
                 <ol>
                   {project.steps ? project.steps.map(asList) : 'Loading...'}
                 </ol>
-              </Card.Text>
-              <Link className="btn"
-                role="button" style={editButton} to={`/my-projects/${project._id}/edit`}>
+              </Card.Title>
+              <Link
+                className='btn'
+                role='button'
+                style={editButton}
+                to={`/my-projects/${project._id}/edit`}>
                 Edit
               </Link>
-              <Button style={deleteButton} onClick={() => { if (window.confirm('Are you sure you wish to delete this item?')) this.destroy() }}>Delete</Button>
-              <Link className="btn"
-                role="button" style={backButton} to={'/my-projects/'}>
+              <Button
+                style={deleteButton}
+                onClick={() => {
+                  if (
+                    window.confirm('Are you sure you wish to delete this item?')
+                  ) {
+                    this.destroy()
+                  }
+                }}>
+                Delete
+              </Button>
+              <Link
+                className='btn'
+                role='button'
+                style={backButton}
+                to={'/my-projects/'}>
                 Back
               </Link>
             </Card.Body>
