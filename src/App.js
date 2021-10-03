@@ -77,7 +77,10 @@ class App extends Component {
             exact
             path='/'
             render={() => (
-              <Home msgAlert={this.msgAlert} setUser={this.setUser} />
+              <Home
+                msgAlert={this.msgAlert}
+                setUser={this.setUser}
+                user={user} />
             )}
           />
           <Route

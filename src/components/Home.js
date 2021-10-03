@@ -26,7 +26,7 @@ const Home = ({ user }) => (
     <br></br>
     <Carousel style={carousel}>
       <Carousel.Item>
-        <Link style={{ margin: 'auto' }} to={'/sign-in'}>
+        <Link style={{ margin: 'auto' }} to={user ? '/projects' : '/sign-in'}>
           <img
             className='d-block w-100'
             src='https://www.restyledhomes.blog/wp-content/uploads/2020/03/Easy-wood-DIY-home-projects-for-beginners-min-1.jpg'
@@ -42,7 +42,7 @@ const Home = ({ user }) => (
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <Link style={{ margin: 'auto' }} to={'/sign-in'}>
+        <Link style={{ margin: 'auto' }} to={user ? '/projects' : '/sign-in'}>
           <img
             className='d-block w-100'
             src='https://i.ytimg.com/vi/u3NBJnsEHxg/maxresdefault.jpg'
@@ -57,12 +57,14 @@ const Home = ({ user }) => (
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
-        <img
-          className='d-block w-100'
-          src='https://diyprojects.com/wp-content/uploads/2016/05/young-pretty-girl-holding-brush-applying-glaze-woodworking-projects-for-kids-ss-Feature.jpg'
-          alt='Third slide'
-        />
-
+        <Link
+          to={user ? '/projects' : '/sign-in'}>
+          <img
+            className='d-block w-100'
+            src='https://diyprojects.com/wp-content/uploads/2016/05/young-pretty-girl-holding-brush-applying-glaze-woodworking-projects-for-kids-ss-Feature.jpg'
+            alt='Third slide'
+          />
+        </Link>
         <Carousel.Caption>
           <h3 style={carousel}>Build memories</h3>
           <p style={carousel}>
