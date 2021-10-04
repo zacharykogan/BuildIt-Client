@@ -31,6 +31,10 @@ const card = {
   width: '350',
   background: 'rgba(0, 0, 0, 0.7)'
 }
+const steps = {
+  fontSize: '16px',
+  fontWeight: '400'
+}
 const editButton = {
   color: 'yellow',
   border: 'auto',
@@ -117,7 +121,8 @@ class MyProject extends Component {
                   ? project.materials.map(asList)
                   : 'Loading...'}
               </Card.Text>
-              <Card.Title >
+              <Card.Title
+                style={steps}>
                 Steps :
                 <ol>
                   {project.steps ? project.steps.map(asList) : 'Loading...'}
