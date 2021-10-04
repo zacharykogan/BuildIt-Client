@@ -22,14 +22,16 @@ const cardTitle = {
 
 const cardBody = {
   borderRadius: '0px 0px 8px 8px',
-  color: 'white'
+  color: 'white',
+  height: '300px'
 }
 
 const card = {
   border: 'none',
   borderRadius: '10px',
-  width: '350',
-  background: 'rgba(0, 0, 0, 0.7)'
+  width: '350px',
+  background: 'rgba(0, 0, 0, 0.7)',
+  height: '400px'
 }
 
 class Projects extends Component {
