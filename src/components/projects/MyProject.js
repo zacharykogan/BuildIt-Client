@@ -8,8 +8,7 @@ import apiUrl from '../../apiConfig'
 const cardImg = {
   margin: 'auto',
   padding: '25px',
-  width: 'auto',
-  height: 'auto'
+  width: 'md'
 }
 
 const cardCol = {
