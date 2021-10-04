@@ -4,9 +4,10 @@ import { Card, Col, Row } from 'react-bootstrap'
 import { myProjects } from '../../api/projects'
 
 const card = {
-  border: 'none',
+  border: '2px',
   borderRadius: '10px',
-  width: '350',
+  width: 'auto',
+  height: '550px',
   background: 'rgba(0, 0, 0, 0.7)'
 }
 

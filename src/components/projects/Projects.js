@@ -27,7 +27,7 @@ const cardBody = {
 }
 
 const card = {
-  border: 'none',
+  border: '3px',
   borderRadius: '10px',
   width: '350px',
   background: 'rgba(0, 0, 0, 0.7)',
