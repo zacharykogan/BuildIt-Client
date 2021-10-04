@@ -36,7 +36,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar id='basic-navbar-nav' bg='dark' variant='dark' expand='md'>
+  <Navbar sticky="top" id='basic-navbar-nav' bg='dark' variant='dark' expand='md'>
     <Navbar.Brand>
       <Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>
         BuildIT
