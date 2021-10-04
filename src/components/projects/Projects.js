@@ -38,17 +38,17 @@ class Projects extends Component {
   constructor (props) {
     super(props)
 
-    this.state = {}
+    this.state = { projects: [] }
   }
 
   componentDidMount () {
     axios(`${apiUrl}/projects`)
-      .then((res) => this.setState({ project: res.data.project }))
+      .then((res) => this.setState({ projects: res.data.projects }))
       .catch(console.error)
   }
 
   render () {
-    const { projects } = this.props
+    const { projects } = this.state
 
     const projectList = projects.map((item) => (
       <Col xs={12} md={6} lg={4} xl={4} key={item._id} style={cardCol}>

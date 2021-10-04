@@ -17,7 +17,7 @@ import EditProject from './components/projects/EditProject'
 import MyProjects from './components/projects/MyProjects'
 import MyProject from './components/projects/MyProject'
 import Home from './components/Home'
-import { index } from './api/projects'
+// import { index } from './api/projects'
 
 class App extends Component {
   constructor (props) {
@@ -30,12 +30,12 @@ class App extends Component {
     }
   }
 
-  componentDidMount () {
-    // api call for
-    index()
-      .then((res) => this.setState({ projects: res.data.projects }))
-      .catch(console.error)
-  }
+  // componentDidMount () {
+  //   // api call for
+  //   index()
+  //     .then((res) => this.setState({ projects: res.data.projects }))
+  //     .catch(console.error)
+  // }
 
   setUser = (user) => this.setState({ user })
 
